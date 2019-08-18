@@ -1,0 +1,43 @@
+{
+  "name": "eslint-config-prettier-og",
+  "version": "1.0.0",
+  "description": "my eslint configuration with prettier",
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "prettier",
+    "og",
+    "oleggrishechkin"
+  ],
+  "homepage": "https://github.com/oleggrishechkin/eslint-config-prettier-og",
+  "license": "MIT",
+  "author": {
+    "name": "Oleg Grishechkin",
+    "email": "oleggrishechkin@gmail.com",
+    "url": "https://github.com/oleggrishechkin"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oleggrishechkin/eslint-config-prettier-og"
+  },
+  "scripts": {
+    "eslint-check": "eslint --print-config index.js | eslint-config-prettier-check",
+    "lint": "eslint ../eslint-config-prettier-og",
+    "lint-fix": "eslint --fix ../eslint-config-prettier-og"
+  },
+  "dependencies": {
+    "babel-eslint": "^10.0.2",
+    "eslint": "^6.3.0",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.0.1",
+    "prettier": "^1.18.2"
+  },
+  "private": false,
+  "eslintConfig": {
+    "extends": "./index.js"
+  }
+}
