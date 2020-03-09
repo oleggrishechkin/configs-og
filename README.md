@@ -18,24 +18,25 @@ configurations for eslint, prettier, babel, husky, lint-staged
    and peerDependencies
 
     ```shell script
-    npm install --save-dev @babel/core@7.* babel-eslint@10.*" eslint@6.8.*" husky@4.*" lint-staged@10.*" prettier@1.18.*"
+    npm install --save-dev @babel/core@7.* babel-eslint@10.* eslint@6.8.* husky@4.* lint-staged@10.* prettier@1.18.*
     ```
 
 2) Add this in your package.json
 
     ```json
     "eslintConfig": {
-      "extends": "configs-og/.eslintrc.js"
+      "extends": "./node_modules/configs-og/.eslintrc.js"
     },
     "prettier": "configs-og/prettier.config.js",
     "babel": {
       "extends": "configs-og/babel.config.js"
+    },
+    "husky": {
+        "hooks": {
+               "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.(js|jsx)": ["eslint --quiet"]
     }
-    "lint-staged": "configs-og/lint-staged.config.js"
-    ```
-
-    and create `husky.config.js` in root directory with
-
-    ```javascript
-    module.exports = require('configs-og/husky.config.js');
     ```
