@@ -34,6 +34,7 @@ module.exports = {
         'react/display-name': 0,
         'react/default-props-match-prop-types': 2,
         'react/no-find-dom-node': 0,
+        "react/prop-types": [2, { skipUndeclared: true }],
         'react/no-typos': 2,
         'react/no-unused-prop-types': 2,
         'react/no-unused-state': 2,
@@ -43,7 +44,7 @@ module.exports = {
         'import/no-unresolved': 2,
         'import/named': 2,
         'import/default': 2,
-        'import/namespace': 2,
+        "import/namespace": [2, { allowComputed: true }],
         'import/no-self-import': 2,
         'import/no-cycle': 2,
         'import/no-useless-path-segments': 2,
@@ -53,6 +54,6 @@ module.exports = {
         'import/no-duplicates': 2,
         'import/order': 2,
         'import/newline-after-import': 2,
-        'prettier/prettier': 2
+        'prettier/prettier': 2,
     }
 };
