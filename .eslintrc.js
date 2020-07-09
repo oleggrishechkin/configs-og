@@ -40,7 +40,7 @@ module.exports = {
         'react/no-unused-state': 2,
         'react/require-default-props': [2, { forbidDefaultForRequired: true, ignoreFunctionalComponents: true }],
         'react-hooks/rules-of-hooks': 2,
-        'react-hooks/exhaustive-deps': 2,
+        'react-hooks/exhaustive-deps': 1,
         'import/no-unresolved': 2,
         'import/named': 2,
         'import/default': 2,
