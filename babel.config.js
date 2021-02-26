@@ -1,10 +1,16 @@
-module.exports = function(api) {
-    const presets = ['@babel/preset-env', '@babel/preset-react'];
+module.exports = function (api) {
+    const presets = [
+        '@babel/preset-env',
+        [
+            '@babel/preset-react',
+            {
+                runtime: 'automatic'
+            }
+        ]
+    ];
     const plugins = [
         '@babel/plugin-proposal-function-bind',
-        '@babel/plugin-syntax-dynamic-import',
         '@babel/plugin-syntax-import-meta',
-        ['@babel/plugin-proposal-class-properties', { loose: false }],
         '@babel/plugin-transform-runtime'
     ];
 
