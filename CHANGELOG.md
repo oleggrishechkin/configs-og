@@ -1,3 +1,9 @@
+# 2.0.0 (26 February 2021)
+
+## Breaking
+
+- Update `prettier` and `eslint`
+
 # 1.0.0 (9 July 2020)
 
 ## Features

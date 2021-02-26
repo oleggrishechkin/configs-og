@@ -9,7 +9,10 @@ module.exports = function (api) {
         ]
     ];
     const plugins = [
+        ['@babel/plugin-proposal-class-properties', { loose: false }],
         '@babel/plugin-proposal-function-bind',
+        '@babel/plugin-proposal-optional-chaining',
+        '@babel/plugin-syntax-dynamic-import',
         '@babel/plugin-syntax-import-meta',
         '@babel/plugin-transform-runtime'
     ];
