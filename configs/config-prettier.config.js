@@ -1,3 +1,3 @@
 module.exports = {
-    ...require('configs-og/config-prettier.config.js')
+    ...require('configs-og/prettier.config.js')
 };

@@ -1,3 +1,3 @@
 module.exports = {
-    presets: ['configs-og/config-babel.config.js']
+    presets: ['configs-og/babel.config.js']
 };

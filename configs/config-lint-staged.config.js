@@ -1,3 +1,3 @@
 module.exports = {
-    ...require('configs-og/config-lint-staged.config.js')
+    ...require('configs-og/lint-staged.config.js')
 };
