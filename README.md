@@ -27,11 +27,6 @@
           "extends": "./node_modules/configs-og/.eslintrc.js"
         },
         "prettier": "configs-og/prettier.config.js",
-        "husky": {
-            "hooks": {
-                "pre-commit": "lint-staged"
-            }
-        },
         "lint-staged": {
             "*.(js|jsx)": ["eslint --quiet"]
         }
