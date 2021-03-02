@@ -24,40 +24,40 @@
             "lint:fix": "eslint --quiet --fix ."
         },
         "eslintConfig": {
-          "extends": "./node_modules/configs-og/.eslintrc.js"
+          "extends": "./node_modules/configs-og/config-.eslintrc.js"
         },
-        "prettier": "configs-og/prettier.config.js",
+        "prettier": "configs-og/config-prettier.config.js",
         "lint-staged": {
             "*.(js|jsx)": ["eslint --quiet"]
         }
         ```
 
-    - Create **babel.config.js** in root directory with this config
+    - Create **config-babel.config.js** in root directory with this config
     
         ```javascript
         module.exports = {
-            presets: ['configs-og/babel.config.js']
+            presets: ['configs-og/config-babel.config.js']
         };
         ```
 
 ## Custom configuration for Eslint, Prettier
 
 - ### Eslint
-    Create **.eslintrc.js** in root directory with this config
+    Create **config-.eslintrc.js** in root directory with this config
     
     ```javascript
     module.exports = {
-        extends: ['./node_modules/configs-og/.eslintrc.js'],
+        extends: ['./node_modules/configs-og/config-.eslintrc.js'],
         // configuration
     };
     ```
 
 - ### Prettier
-    Create **prettier.config.js** in root directory with this config
+    Create **config-prettier.config.js** in root directory with this config
     
     ```javascript
     module.exports = {
-        ...require("configs-og/prettier.config.js"),
+        ...require("configs-og/config-prettier.config.js"),
         // configuration
     };
     ```
