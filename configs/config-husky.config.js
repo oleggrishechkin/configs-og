@@ -1,3 +1,3 @@
 module.exports = {
-    ...require('configs-og/husky.config.js')
+    ...require('./node_modules/configs-og/husky.config.js')
 };

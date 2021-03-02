@@ -12,52 +12,85 @@
 - ### Installation:
 
     ```shell script
-    npm install --save-dev configs-og
+    npm install --save-dev configs-og 
     ```
 
 - ### Configuration:
-    - Add this in your **package.json** for Eslint, Prettier, Husky and lintStaged
 
-        ```json
-        "scripts": {
-            "lint": "eslint --quiet .",
-            "lint:fix": "eslint --quiet --fix ."
-        },
-        "eslintConfig": {
-          "extends": "./node_modules/configs-og/config-.eslintrc.js"
-        },
-        "prettier": "configs-og/config-prettier.config.js",
-        "lint-staged": {
-            "*.(js|jsx)": ["eslint --quiet"]
-        }
-        ```
+    ```shell script
+    node node_modules/configs-og/init.js
+    ```
 
-    - Create **config-babel.config.js** in root directory with this config
-    
-        ```javascript
-        module.exports = {
-            presets: ['configs-og/config-babel.config.js']
-        };
-        ```
-
-## Custom configuration for Eslint, Prettier
+## Manual configuration
 
 - ### Eslint
-    Create **config-.eslintrc.js** in root directory with this config
+    Create **.eslintrc.js** in root directory with this [config](./configs/config-.eslintrc.js)
     
     ```javascript
     module.exports = {
-        extends: ['./node_modules/configs-og/config-.eslintrc.js'],
+        extends: ['./node_modules/configs-og/.eslintrc.js'],
+        // configuration
+    };
+    ```
+    
+  (optional) Create **.eslintignore** in root directory with this [content](./configs/config-.eslintignore)
+
+- ### Babel
+    Create **babel.config.js** in root directory with this [config](./configs/config-babel.config.js)
+
+    ```javascript
+    module.exports = {
+        presets: ['configs-og/babel.config.js'],
         // configuration
     };
     ```
 
 - ### Prettier
-    Create **config-prettier.config.js** in root directory with this config
+    Create **prettier.config.js** in root directory with this [config](./configs/config-prettier.config.js)
     
     ```javascript
     module.exports = {
-        ...require("configs-og/config-prettier.config.js"),
+        ...require('./node_modules/configs-og/prettier.config.js'),
         // configuration
     };
     ```
+
+- ### Husky
+    Create **husky.config.js** in root directory with this [config](./configs/config-husky.config.js)
+
+    ```javascript
+    module.exports = {
+        ...require('./node_modules/configs-og/husky.config.js'),
+        // configuration
+    };
+    ```
+
+- ### lint-staged
+    Create **lint-staged.config.js** in root directory with this [config](./configs/config-lint-staged.config.js)
+
+    ```javascript
+    module.exports = {
+        ...require('./node_modules/configs-og/lint-staged.config.js'),
+        // configuration
+    };
+    ```
+
+- ### .gitignore (optional)
+    Create **.gitignore** in root directory with this [content](./configs/config-.gitignore)
+
+    ```javascript
+    module.exports = {
+        ...require('./node_modules/configs-og/lint-staged.config.js'),
+        // configuration
+    };
+    ```
+
+- ### Scripts (optional)
+    Add this in your **package.json** for Eslint
+
+   ```json
+   "scripts": {
+       "lint": "eslint --quiet .",
+       "lint:fix": "eslint --quiet --fix ."
+   }
+   ```
