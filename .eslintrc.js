@@ -28,6 +28,21 @@ module.exports = {
         'plugin:react-hooks/recommended',
         'plugin:prettier/recommended'
     ],
+    overrides: [
+        {
+            files: ['**/*.ts?(x)'],
+            parser: '@typescript-eslint/parser',
+            plugins: ['@typescript-eslint'],
+            settings: {
+                'import/extensions': ['.js', '.jsx', '.ts', '.tsx']
+            },
+            extends: ['plugin:@typescript-eslint/recommended'],
+            rules: {
+                '@typescript-eslint/no-empty-function': 0,
+                '@typescript-eslint/no-unused-vars': [2, { ignoreRestSiblings: true }]
+            }
+        }
+    ],
     rules: {
         'no-prototype-builtins': 0,
         'no-unsafe-optional-chaining': 2,
