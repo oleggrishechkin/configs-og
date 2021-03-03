@@ -20,7 +20,7 @@ const pkg = require(path.resolve('package.json'));
         key: 'husky',
         value: {
             hooks: {
-                'pre-commit': 'lint-staged --config configs-og/lint-staged.config.js'
+                'pre-commit': 'lint-staged'
             }
         }
     },
