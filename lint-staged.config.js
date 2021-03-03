@@ -1,3 +1,3 @@
 module.exports = {
-    '*.(js|jsx)': ['eslint --quiet']
+    '*.(js|jsx|ts|tsx)': ['eslint --quiet']
 };
