@@ -16,10 +16,18 @@
     ```
 
 - ### Configuration:
+    
+    - Add configs in **package.json** (Recommended)
 
-    ```shell script
-    node node_modules/configs-og/init.js
-    ```
+      ```shell script
+      node node_modules/configs-og/init-package.js
+      ```
+
+    - or add configs in separate files
+
+      ```shell script
+      node node_modules/configs-og/init.js
+      ```
 
 ## Manual configuration
 
@@ -75,17 +83,10 @@
     };
     ```
 
-- ### .gitignore (optional)
+- ### (optional) .gitignore
     Create **.gitignore** in root directory with this [content](./configs/config-.gitignore)
 
-    ```javascript
-    module.exports = {
-        ...require('./node_modules/configs-og/lint-staged.config.js'),
-        // configuration
-    };
-    ```
-
-- ### Scripts (optional)
+- ### (optional) Scripts
     Add this in your **package.json** for Eslint
 
    ```json

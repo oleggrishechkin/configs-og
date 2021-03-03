@@ -20,13 +20,15 @@ const pkg = require(path.resolve('package.json'));
         key: 'husky',
         value: {
             hooks: {
-                'pre-commit': 'lint-staged'
+                'pre-commit': 'lint-staged --config configs-og/lint-staged.config.js'
             }
         }
     },
     {
         key: 'lint-staged',
-        value: 'configs-og/lint-staged.config.js'
+        value: {
+            '*.(js|jsx|ts|tsx)': ['eslint --quiet']
+        }
     }
 ].forEach(({ key, value }) => {
     if (pkg[key]) {
