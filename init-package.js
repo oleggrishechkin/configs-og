@@ -5,7 +5,7 @@ const pkg = require(path.resolve('package.json'));
 
 [
     {
-        key: 'eslint',
+        key: 'eslintConfig',
         value: { extends: ['./node_modules/configs-og/.eslintrc.js'] }
     },
     {

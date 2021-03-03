@@ -1,6 +1,6 @@
 {
   "name": "configs-og",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "description": "Eslint, Prettier, Babel, Husky, lint-staged configurations for JavaScript Frontend environment",
   "keywords": [
     "eslint",
