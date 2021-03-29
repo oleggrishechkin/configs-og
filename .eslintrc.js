@@ -16,7 +16,11 @@ module.exports = {
         }
     },
     settings: {
-        'import/extensions': ['.js', '.jsx'],
+        'import/resolver': {
+            node: {
+                extensions: ['.js', '.jsx', '.ts', '.tsx']
+            }
+        },
         react: {
             version: 'detect'
         }
