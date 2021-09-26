@@ -1,6 +1,6 @@
 {
   "name": "configs-og",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "description": "Eslint, Prettier configurations for JavaScript Frontend environment",
   "keywords": [
     "eslint",
@@ -38,6 +38,8 @@
   },
   "peerDependencies": {
     "eslint": "^7.20.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
     "prettier": "^2.2.1"
   }
 }

@@ -21,6 +21,20 @@
     npm install configs-og@latest
     ```
 
+- ### Parser:
+
+    for JavaScript files:
+
+    ```shell script
+    npm install babel-eslint
+    ```
+
+    for TypeScript files:
+
+    ```shell script
+    npm install typescript
+    ```
+
 ## Manual configuration
 
 - ### Eslint

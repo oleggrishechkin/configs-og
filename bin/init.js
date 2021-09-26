@@ -9,11 +9,11 @@ const COPYFILE_EXCL = require('fs').constants.COPYFILE_EXCL;
 
 console.log('Install dependencies...');
 
-execSync('npm install --save-dev configs-og eslint@7.* prettier@2.*');
+execSync('npm install --save-dev configs-og eslint@7.* prettier@2.* husky lint-staged');
 
 console.log('Add scripts...');
 
-let pkg = require(path.resolve('package.json'));
+const pkg = require(path.resolve('package.json'));
 
 const promises = [];
 
@@ -29,6 +29,10 @@ const scripts = [
     {
         key: 'prettier:fix',
         value: 'prettier --write .'
+    },
+    {
+        key: 'prepare',
+        value: 'husky install'
     }
 ];
 
@@ -54,6 +58,12 @@ const configs = [
     {
         key: 'prettier',
         value: 'configs-og/prettier.config.js'
+    },
+    {
+        ket: 'lint-staged',
+        value: {
+            '*.(js|jsx|ts|tsx)': 'eslint --quiet'
+        }
     }
 ];
 
@@ -73,6 +83,8 @@ promises.push(
     })
 );
 
+console.log('Add *ignore files...');
+
 const files = ['copy-.eslintignore', 'copy-.gitignore'];
 
 files.forEach((copyFilename) => {
@@ -88,23 +100,10 @@ files.forEach((copyFilename) => {
 });
 
 Promise.all(promises).then(() => {
-    console.log('Setup lint-staged...');
+    console.log('Add husky...');
 
-    execSync('npx mrm@2 lint-staged');
-
-    pkg = require(path.resolve('package.json'));
-
-    pkg['lint-staged'] = {
-        '*.(js|jsx|ts|tsx)': 'eslint --quiet'
-    };
-
-    promises.push(
-        fs.writeFile(path.resolve('package.json'), JSON.stringify(pkg, null, 2)).catch((error) => {
-            if (error) {
-                console.error("Error: can't write package.json, you should add config manually");
-            }
-        })
-    );
+    execSync('npm run prepare');
+    execSync('npx husky add .husky/pre-commit "lint-staged"');
 
     console.log('Done.');
 });
