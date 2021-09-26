@@ -60,7 +60,7 @@ const configs = [
         value: 'configs-og/prettier.config.js'
     },
     {
-        ket: 'lint-staged',
+        key: 'lint-staged',
         value: {
             '*.(js|jsx|ts|tsx)': 'eslint --quiet'
         }

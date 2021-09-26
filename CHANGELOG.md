@@ -1,4 +1,4 @@
-# 3.0.5 (26 September 2021)
+# 3.0.6 (26 September 2021)
 
 ## Breaking
 
