@@ -1,9 +1,22 @@
-# 3.0.0 (26 February 2021)
+# 3.0.4 (26 September 2021)
 
 ## Breaking
 
-- Update `prettier` and `eslint`
-- 
+- Remove `babel` config
+- Remove init and init-package scripts
+- Move `eslint` and `prettier` to peerDependencies
+- Remove `typescript` and `babel-eslint` dependencies
+- Add `import/no-default-export` rule
+- Add `padding-line-between-statements` rule
+
+## Feature
+
+- Add npx script (`npx configs-og`) for init
+
+## Fix
+
+- Add `@typescript-eslint/no-use-before-define` rule
+
 # 2.0.0 (26 February 2021)
 
 ## Breaking
