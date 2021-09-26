@@ -1,6 +1,6 @@
 {
   "name": "configs-og",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Eslint, Prettier configurations for JavaScript Frontend environment",
   "keywords": [
     "eslint",
@@ -18,13 +18,6 @@
     "url": "https://github.com/oleggrishechkin/configs-og"
   },
   "bin": "./bin/init.js",
-  "files": [
-    "bin",
-    ".eslintrc.js",
-    ".eslintignore",
-    ".gitignore",
-    "prettier.config.js"
-  ],
   "scripts": {
     "eslint-check": "npx eslint-config-prettier .eslintrc.js"
   },

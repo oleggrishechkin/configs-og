@@ -40,7 +40,9 @@ module.exports = {
             extends: ['plugin:@typescript-eslint/recommended', 'plugin:import/typescript'],
             rules: {
                 '@typescript-eslint/no-empty-function': 0,
-                '@typescript-eslint/no-unused-vars': [2, { ignoreRestSiblings: true }]
+                '@typescript-eslint/no-unused-vars': [2, { ignoreRestSiblings: true }],
+                'no-use-before-define': 0,
+                '@typescript-eslint/no-use-before-define': 2
             }
         }
     ],
@@ -49,6 +51,39 @@ module.exports = {
         'no-unsafe-optional-chaining': 2,
         'array-callback-return': 2,
         eqeqeq: 2,
+        'padding-line-between-statements': [
+            2,
+            {
+                blankLine: 'always',
+                prev: '*',
+                next: ['return', 'break', 'continue']
+            },
+            {
+                blankLine: 'always',
+                prev: ['for', 'while', 'do', 'if', 'switch', 'try'],
+                next: '*'
+            },
+            {
+                blankLine: 'always',
+                prev: '*',
+                next: ['for', 'while', 'do', 'if', 'switch', 'try']
+            },
+            {
+                blankLine: 'always',
+                prev: ['const', 'let', 'var'],
+                next: '*'
+            },
+            {
+                blankLine: 'always',
+                prev: '*',
+                next: ['const', 'let', 'var']
+            },
+            {
+                blankLine: 'any',
+                prev: ['const', 'let', 'var'],
+                next: ['const', 'let', 'var']
+            }
+        ],
         'prettier/prettier': ['error'],
         'no-unused-vars': [2, { ignoreRestSiblings: true }],
         'no-use-before-define': 2,
@@ -69,6 +104,7 @@ module.exports = {
         'react/no-unused-prop-types': 2,
         'react/no-unused-state': 2,
         'react/react-in-jsx-scope': 0,
-        'react/jsx-uses-react': 0
+        'react/jsx-uses-react': 0,
+        'import/no-default-export': 2
     }
 };

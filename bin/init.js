@@ -7,27 +7,46 @@ const path = require('path');
 const execSync = require('child_process').execSync;
 const COPYFILE_EXCL = require('fs').constants.COPYFILE_EXCL;
 
-const pkg = require(path.resolve('package.json'));
-
 console.log('Install dependencies...');
 
 execSync('npm install --save-dev configs-og eslint@7.* prettier@2.*');
 
-console.log('...Done.');
+console.log('Add scripts...');
+
+let pkg = require(path.resolve('package.json'));
 
 const promises = [];
+
+const scripts = [
+    {
+        key: 'lint',
+        value: 'eslint --quiet .'
+    },
+    {
+        key: 'lint:fix',
+        value: 'eslint --quiet --fix .'
+    },
+    {
+        key: 'prettier:fix',
+        value: 'prettier --write .'
+    }
+];
+
+if (!pkg.scripts) {
+    pkg.scripts = {};
+}
+
+scripts.forEach(({ key, value }) => {
+    if (pkg.scripts[key]) {
+        console.error(`Error: script ${key} is exists, you should add script manually`);
+    } else {
+        pkg.scripts[key] = value;
+    }
+});
 
 console.log('Add configs...');
 
 const configs = [
-    {
-        key: 'scripts',
-        value: {
-            ...(pkg.scripts || {}),
-            lint: 'eslint --quiet .',
-            'lint:fix': 'eslint --quiet --fix .'
-        }
-    },
     {
         key: 'eslintConfig',
         value: { extends: ['./node_modules/configs-og/.eslintrc.js'] }
@@ -40,7 +59,7 @@ const configs = [
 
 configs.forEach(({ key, value }) => {
     if (pkg[key]) {
-        console.error(`Error: ${key} is exists, you should add config manually`);
+        console.error(`Error: config ${key} is exists, you should add config manually`);
     } else {
         pkg[key] = value;
     }
@@ -54,11 +73,13 @@ promises.push(
     })
 );
 
-const files = ['.eslintignore', '.gitignore'];
+const files = ['copy-.eslintignore', 'copy-.gitignore'];
 
-files.forEach((filename) => {
+files.forEach((copyFilename) => {
+    const filename = copyFilename.slice(5);
+
     promises.push(
-        fs.copyFile(path.join(__dirname, filename), path.resolve(filename), COPYFILE_EXCL).catch((error) => {
+        fs.copyFile(path.join(__dirname, copyFilename), path.resolve(filename), COPYFILE_EXCL).catch((error) => {
             if (error) {
                 console.error(`Error: can't write ${filename}, you should add config manually`);
             }
@@ -67,11 +88,23 @@ files.forEach((filename) => {
 });
 
 Promise.all(promises).then(() => {
-    console.log('...Done.');
-
     console.log('Setup lint-staged...');
 
     execSync('npx mrm@2 lint-staged');
 
-    console.log('...Done');
+    pkg = require(path.resolve('package.json'));
+
+    pkg['lint-staged'] = {
+        '*.(js|jsx|ts|tsx)': 'eslint --quiet'
+    };
+
+    promises.push(
+        fs.writeFile(path.resolve('package.json'), JSON.stringify(pkg, null, 2)).catch((error) => {
+            if (error) {
+                console.error("Error: can't write package.json, you should add config manually");
+            }
+        })
+    );
+
+    console.log('Done.');
 });

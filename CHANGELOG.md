@@ -1,3 +1,9 @@
+# 3.0.0 (26 February 2021)
+
+## Breaking
+
+- Update `prettier` and `eslint`
+- 
 # 2.0.0 (26 February 2021)
 
 ## Breaking

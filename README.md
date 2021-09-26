@@ -15,6 +15,12 @@
     npx configs-og
     ```
 
+- ### Updating:
+
+    ```shell script
+    npm install configs-og@latest
+    ```
+
 ## Manual configuration
 
 - ### Eslint
@@ -49,7 +55,8 @@
    {
        "scripts": {
            "lint": "eslint --quiet .",
-           "lint:fix": "eslint --quiet --fix ."
+           "lint:fix": "eslint --quiet --fix .",
+           "prettier:fix": "prettier --write ." 
        }
    }
    ```
