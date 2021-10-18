@@ -91,7 +91,7 @@ files.forEach((copyFilename) => {
     const filename = copyFilename.slice(5);
 
     promises.push(
-        fs.copyFile(path.join(__dirname, copyFilename), path.resolve(filename), COPYFILE_EXCL).catch((error) => {
+        fs.copyFile(path.join(__dirname, '..', copyFilename), path.resolve(filename), COPYFILE_EXCL).catch((error) => {
             if (error) {
                 console.error(`Error: can't write ${filename}, you should add config manually`);
             }
