@@ -1,36 +1,37 @@
 module.exports = {
     root: true,
-    parser: 'babel-eslint',
+    parser: '@babel/eslint-parser',
     env: {
         browser: true,
         commonjs: true,
         es6: true,
         jest: true,
-        node: true
+        node: true,
     },
     parserOptions: {
+        requireConfigFile: false,
         ecmaVersion: 2018,
         sourceType: 'module',
         ecmaFeatures: {
-            jsx: true
-        }
+            jsx: true,
+        },
     },
     settings: {
         'import/resolver': {
             node: {
-                extensions: ['.js', '.jsx', '.ts', '.tsx']
-            }
+                extensions: ['.js', '.jsx', '.ts', '.tsx'],
+            },
         },
         react: {
-            version: 'detect'
-        }
+            version: 'detect',
+        },
     },
     extends: [
         'eslint:recommended',
         'plugin:import/recommended',
         'plugin:react/recommended',
         'plugin:react-hooks/recommended',
-        'plugin:prettier/recommended'
+        'plugin:prettier/recommended',
     ],
     overrides: [
         {
@@ -42,9 +43,9 @@ module.exports = {
                 '@typescript-eslint/no-empty-function': 0,
                 '@typescript-eslint/no-unused-vars': [2, { ignoreRestSiblings: true }],
                 'no-use-before-define': 0,
-                '@typescript-eslint/no-use-before-define': 2
-            }
-        }
+                '@typescript-eslint/no-use-before-define': 2,
+            },
+        },
     ],
     rules: {
         'no-prototype-builtins': 0,
@@ -56,33 +57,33 @@ module.exports = {
             {
                 blankLine: 'always',
                 prev: '*',
-                next: ['return', 'break', 'continue']
+                next: ['return', 'break', 'continue'],
             },
             {
                 blankLine: 'always',
                 prev: ['for', 'while', 'do', 'if', 'switch', 'try'],
-                next: '*'
+                next: '*',
             },
             {
                 blankLine: 'always',
                 prev: '*',
-                next: ['for', 'while', 'do', 'if', 'switch', 'try']
+                next: ['for', 'while', 'do', 'if', 'switch', 'try'],
             },
             {
                 blankLine: 'always',
                 prev: ['const', 'let', 'var'],
-                next: '*'
+                next: '*',
             },
             {
                 blankLine: 'always',
                 prev: '*',
-                next: ['const', 'let', 'var']
+                next: ['const', 'let', 'var'],
             },
             {
                 blankLine: 'any',
                 prev: ['const', 'let', 'var'],
-                next: ['const', 'let', 'var']
-            }
+                next: ['const', 'let', 'var'],
+            },
         ],
         'prettier/prettier': ['error'],
         'no-unused-vars': [2, { ignoreRestSiblings: true }],
@@ -105,6 +106,6 @@ module.exports = {
         'react/no-unused-state': 2,
         'react/react-in-jsx-scope': 0,
         'react/jsx-uses-react': 0,
-        'import/no-default-export': 2
-    }
+        'import/no-default-export': 2,
+    },
 };
