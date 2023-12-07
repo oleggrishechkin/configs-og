@@ -1,3 +1,9 @@
+# 5.0.1 (08 December 2023)
+
+## Fix
+
+-  Change install deps versions from `@8.*` to `@8`
+
 # 5.0.0 (08 December 2023)
 
 ## Breaking
