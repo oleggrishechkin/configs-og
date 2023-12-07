@@ -9,7 +9,7 @@ const COPYFILE_EXCL = require('fs').constants.COPYFILE_EXCL;
 
 console.log('[configs-og]: Install dependencies...');
 
-execSync('npm install --save-dev configs-og@latest eslint@8.* prettier@2.* husky@8.* lint-staged@13.*');
+execSync('npm install --save-dev configs-og@latest eslint@8.* prettier@3.* husky@8.* lint-staged@15.*');
 
 console.log('[configs-og]: Add scripts...');
 

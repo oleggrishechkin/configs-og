@@ -9,13 +9,13 @@
 
 ## Getting Started
 
-- ### Installation:
+-   ### Installation:
 
     ```shell script
     npx configs-og
     ```
 
-- ### Updating:
+-   ### Updating:
 
     ```shell script
     npm install configs-og@latest
@@ -23,21 +23,23 @@
 
 ## Manual configuration
 
-- ### Eslint
+-   ### Eslint
+
     Create **.eslintrc.js** in root directory with this config:
-    
+
     ```javascript
     module.exports = {
         extends: ['./node_modules/configs-og/.eslintrc.js'],
         // configuration
     };
     ```
-    
-  (optional) Create **.eslintignore** in root directory with this [content](./.eslintignore)
 
-- ### Prettier
+    (optional) Create **.eslintignore** in root directory with this [content](./.eslintignore)
+
+-   ### Prettier
+
     Create **prettier.config.js** in root directory with this config:
-    
+
     ```javascript
     module.exports = {
         ...require('./node_modules/configs-og/prettier.config.js'),
@@ -45,18 +47,20 @@
     };
     ```
 
-- ### (optional) .gitignore
+-   ### (optional) .gitignore
+
     Create **.gitignore** in root directory with this [content](./.gitignore)
 
-- ### (optional) Scripts
+-   ### (optional) Scripts
+
     Add this to your **package.json**:
 
-   ```json
-   {
-       "scripts": {
-           "lint": "eslint --quiet .",
-           "lint:fix": "eslint --quiet --fix .",
-           "prettier:fix": "prettier --write ." 
-       }
-   }
-   ```
+    ```json
+    {
+        "scripts": {
+            "lint": "eslint --quiet .",
+            "lint:fix": "eslint --quiet --fix .",
+            "prettier:fix": "prettier --write ."
+        }
+    }
+    ```
