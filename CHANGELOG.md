@@ -1,3 +1,9 @@
+# 5.0.2 (08 December 2023)
+
+## Fix
+
+-  Off `@typescript-eslint/no-explicit-any` rule
+
 # 5.0.1 (08 December 2023)
 
 ## Fix

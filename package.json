@@ -1,6 +1,6 @@
 {
     "name": "configs-og",
-    "version": "5.0.1",
+    "version": "5.0.2",
     "description": "Eslint, Prettier configurations for JavaScript Frontend environment",
     "keywords": [
         "eslint",
